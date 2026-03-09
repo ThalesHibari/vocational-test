@@ -105,7 +105,6 @@ export default function ResultadoPage() {
 
   return (
     <div className="min-h-screen bg-brand-bg-purple relative overflow-hidden">
-      <BackgroundDecorations />
       <Header userName={userName} />
 
       <main className="relative z-10 flex flex-col items-center justify-start min-h-screen pt-[88px] pb-12 px-4">

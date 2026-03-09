@@ -13,6 +13,11 @@ export function ProgressBar({ currentIndex, answeredCount }: ProgressBarProps) {
 
   return (
     <div className="w-full max-w-[720px] mx-auto flex flex-col gap-2">
+      <div className="flex items-center justify-center gap-2 mt-8">
+        <span className="text-xs font-extrabold text-brand-purple tracking-widest uppercase font-jakarta">
+          Teste Vocacional
+        </span>
+      </div>
       <div className="flex items-center justify-between text-sm tracking-wide">
         <span className="font-semibold text-gray-800 font-jakarta">Progresso</span>
         <span className="font-normal text-gray-400 font-jakarta">
@@ -26,11 +31,6 @@ export function ProgressBar({ currentIndex, answeredCount }: ProgressBarProps) {
         >
           <div className="absolute inset-[4px_8px_7px_8px] bg-white/20 rounded-full" />
         </div>
-      </div>
-      <div className="flex items-center justify-center gap-2 mt-1">
-        <span className="text-xs font-extrabold text-brand-purple tracking-widest uppercase font-jakarta">
-          Teste Vocacional
-        </span>
       </div>
     </div>
   );

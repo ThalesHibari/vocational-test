@@ -38,7 +38,6 @@ function TestContent() {
 
   return (
     <div className="min-h-screen bg-brand-bg-purple relative overflow-hidden">
-      <BackgroundDecorations />
       <Header userName={state.userName} />
 
       <main className="relative z-10 flex flex-col items-center justify-center min-h-screen pt-[72px] pb-8 px-4">
