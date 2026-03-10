@@ -127,7 +127,7 @@ export const questions: Question[] = [
     ],
   },
   {
-    type: "lista", id: 7,
+    type: "lista", id: 8,
     statement: "Qual tipo de feedback você prefere receber do seu chefe?",
     subtitle: "Selecione 1 opção",
     maxSelections: 1,
