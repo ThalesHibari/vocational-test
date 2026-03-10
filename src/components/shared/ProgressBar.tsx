@@ -3,13 +3,28 @@ import { TOTAL_QUESTIONS } from "@/data/questions";
 interface ProgressBarProps {
   currentIndex: number;
   answeredCount: number;
+  /** When true renders the desktop variant (with title + progress/total labels) */
+  variant?: "desktop" | "mobile";
 }
 
-export function ProgressBar({ currentIndex, answeredCount }: ProgressBarProps) {
+export function ProgressBar({ currentIndex, answeredCount, variant = "desktop" }: ProgressBarProps) {
   const progressPercent = Math.max(
     ((currentIndex + 1) / TOTAL_QUESTIONS) * 100,
     3
   );
+
+  if (variant === "mobile") {
+    return (
+      <div className="relative bg-brand-light-purple h-3 rounded-full w-full overflow-hidden">
+        <div
+          className="absolute left-0 top-0 h-3 bg-brand-purple rounded-full transition-all duration-500 ease-out"
+          style={{ width: `${progressPercent}%` }}
+        >
+          <div className="absolute inset-[3px_6px_4px_6px] bg-white/20 rounded-full" />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="w-full max-w-[720px] mx-auto flex flex-col gap-2">

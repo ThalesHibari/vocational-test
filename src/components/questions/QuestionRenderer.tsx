@@ -11,9 +11,10 @@ interface QuestionRendererProps {
   question: Question;
   answer?: Answer;
   onChange: (answer: Answer) => void;
+  onAutoAdvance?: () => void;
 }
 
-export function QuestionRenderer({ question, answer, onChange }: QuestionRendererProps) {
+export function QuestionRenderer({ question, answer, onChange, onAutoAdvance }: QuestionRendererProps) {
   switch (question.type) {
     case "dicotomica":
       return (
@@ -21,6 +22,7 @@ export function QuestionRenderer({ question, answer, onChange }: QuestionRendere
           question={question}
           answer={answer?.type === "dicotomica" ? answer : undefined}
           onChange={onChange}
+          onAutoAdvance={onAutoAdvance}
         />
       );
     case "likert":
@@ -29,6 +31,7 @@ export function QuestionRenderer({ question, answer, onChange }: QuestionRendere
           question={question}
           answer={answer?.type === "likert" ? answer : undefined}
           onChange={onChange}
+          onAutoAdvance={onAutoAdvance}
         />
       );
     case "direta":
@@ -37,6 +40,7 @@ export function QuestionRenderer({ question, answer, onChange }: QuestionRendere
           question={question}
           answer={answer?.type === "direta" ? answer : undefined}
           onChange={onChange}
+          onAutoAdvance={onAutoAdvance}
         />
       );
     case "cards":
@@ -53,6 +57,7 @@ export function QuestionRenderer({ question, answer, onChange }: QuestionRendere
           question={question}
           answer={answer?.type === "lista" ? answer : undefined}
           onChange={onChange}
+          onAutoAdvance={onAutoAdvance}
         />
       );
     default:

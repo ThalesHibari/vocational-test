@@ -41,28 +41,9 @@ function cardIcon(texto: string): string {
 // ─── Perguntas ────────────────────────────────────────────────────────────────
 
 export const questions: Question[] = [
-  // ─── BLOCO 1: Likert e Boolean Cards (1-15) ───────────────────────────────
-
-  { type: "likert", id: 1, statement: "Gosto de trabalhos que envolvem atividades práticas, onde posso ver o resultado físico do que fiz.", profile: PM["Realista"] },
-  { type: "direta", id: 2, statement: "Fico animado quando tenho que aprender algo novo, mesmo que seja complexo e desafiador.", profile: PM["Investigativo"] },
-  { type: "likert", id: 3, statement: "Sinto necessidade de estar em ambientes onde posso expressar minha criatividade livremente.", profile: PM["Artístico"] },
-  { type: "direta", id: 4, statement: "Tenho muita facilidade em ouvir os problemas das pessoas e ajudá-las a encontrar soluções.", profile: PM["Social"] },
-  { type: "likert", id: 5, statement: "Gosto de assumir a liderança em situações onde o grupo não sabe muito bem o que fazer.", profile: PM["Empreendedor"] },
-  { type: "direta", id: 6, statement: "Fico incomodado quando as informações estão desorganizadas ou sem um padrão claro.", profile: PM["Convencional"] },
-  { type: "likert", id: 7, statement: "Prefiro consertar algo que quebrou do que comprar um novo ou pagar para alguém arrumar.", profile: PM["Realista"] },
-  { type: "direta", id: 8, statement: "Gosto de analisar dados, ler gráficos e encontrar as razões ocultas por trás de um problema.", profile: PM["Investigativo"] },
-  { type: "likert", id: 9, statement: "A estética e o design das coisas são fatores que influenciam muito nas minhas decisões.", profile: PM["Artístico"] },
-  { type: "direta", id: 10, statement: "Me sinto energizado depois de passar o dia ensinando ou orientando outras pessoas.", profile: PM["Social"] },
-  { type: "likert", id: 11, statement: "Sou bom em convencer as pessoas a apoiarem minhas ideias ou comprarem um projeto.", profile: PM["Empreendedor"] },
-  { type: "direta", id: 12, statement: "Gosto de seguir métodos, checklists e processos bem definidos no meu dia a dia.", profile: PM["Convencional"] },
-  { type: "likert", id: 13, statement: "Prefiro atividades ao ar livre ou que exijam movimentação do que ficar o dia todo sentado.", profile: PM["Realista"] },
-  { type: "direta", id: 14, statement: "Adoro testar teorias e ver se as hipóteses que criei na minha cabeça realmente funcionam.", profile: PM["Investigativo"] },
-  { type: "likert", id: 15, statement: "Gosto de trabalhar em ambientes dinâmicos onde regras podem ser quebradas em prol da inovação.", profile: PM["Artístico"] },
-
-  // ─── BLOCO 2: Lista Múltipla Escolha (16-30) ─────────────────────────────
-
+  // ─── BLOCO 1: Lista Múltipla Escolha (1-15) ─────────────────────────────
   {
-    type: "lista", id: 16,
+    type: "lista", id: 1,
     statement: "Em um projeto em grupo, qual papel você costuma assumir naturalmente?",
     subtitle: "Selecione 1 opção",
     maxSelections: 1,
@@ -74,7 +55,7 @@ export const questions: Question[] = [
     ],
   },
   {
-    type: "lista", id: 17,
+    type: "lista", id: 2,
     statement: "Qual dessas atividades te deixaria menos estressado ao final do dia?",
     subtitle: "Selecione 1 opção",
     maxSelections: 1,
@@ -86,7 +67,7 @@ export const questions: Question[] = [
     ],
   },
   {
-    type: "lista", id: 18,
+    type: "lista", id: 3,
     statement: "Se você tivesse tempo livre no trabalho, o que faria primeiro?",
     subtitle: "Selecione 1 opção",
     maxSelections: 1,
@@ -98,7 +79,7 @@ export const questions: Question[] = [
     ],
   },
   {
-    type: "lista", id: 19,
+    type: "lista", id: 4,
     statement: "O que mais te incomoda em um ambiente de trabalho?",
     subtitle: "Selecione 1 opção",
     maxSelections: 1,
@@ -110,7 +91,7 @@ export const questions: Question[] = [
     ],
   },
   {
-    type: "lista", id: 20,
+    type: "lista", id: 5,
     statement: "Como você prefere resolver um problema complexo?",
     subtitle: "Selecione 1 opção",
     maxSelections: 1,
@@ -122,7 +103,7 @@ export const questions: Question[] = [
     ],
   },
   {
-    type: "lista", id: 21,
+    type: "lista", id: 6,
     statement: "Qual destas conquistas te daria mais orgulho?",
     subtitle: "Selecione 1 opção",
     maxSelections: 1,
@@ -134,7 +115,7 @@ export const questions: Question[] = [
     ],
   },
   {
-    type: "lista", id: 22,
+    type: "lista", id: 7,
     statement: "Ao planejar uma viagem com amigos, o que você prefere fazer?",
     subtitle: "Selecione 1 opção",
     maxSelections: 1,
@@ -146,7 +127,7 @@ export const questions: Question[] = [
     ],
   },
   {
-    type: "lista", id: 23,
+    type: "lista", id: 7,
     statement: "Qual tipo de feedback você prefere receber do seu chefe?",
     subtitle: "Selecione 1 opção",
     maxSelections: 1,
@@ -158,7 +139,7 @@ export const questions: Question[] = [
     ],
   },
   {
-    type: "lista", id: 24,
+    type: "lista", id: 9,
     statement: "O que te atrai mais em uma vaga de emprego?",
     subtitle: "Selecione 1 opção",
     maxSelections: 1,
@@ -170,7 +151,7 @@ export const questions: Question[] = [
     ],
   },
   {
-    type: "lista", id: 25,
+    type: "lista", id: 10,
     statement: "Como você lida com imprevistos?",
     subtitle: "Selecione 1 opção",
     maxSelections: 1,
@@ -182,7 +163,7 @@ export const questions: Question[] = [
     ],
   },
   {
-    type: "lista", id: 26,
+    type: "lista", id: 11,
     statement: "Se precisasse aprender algo novo hoje, qual formato escolheria?",
     subtitle: "Selecione 1 opção",
     maxSelections: 1,
@@ -194,7 +175,7 @@ export const questions: Question[] = [
     ],
   },
   {
-    type: "lista", id: 27,
+    type: "lista", id: 12,
     statement: "O que faz você perder a noção do tempo?",
     subtitle: "Selecione 1 opção",
     maxSelections: 1,
@@ -206,7 +187,7 @@ export const questions: Question[] = [
     ],
   },
   {
-    type: "lista", id: 28,
+    type: "lista", id: 13,
     statement: "Em uma empresa recém-criada, onde você atuaria melhor?",
     subtitle: "Selecione 1 opção",
     maxSelections: 1,
@@ -218,7 +199,7 @@ export const questions: Question[] = [
     ],
   },
   {
-    type: "lista", id: 29,
+    type: "lista", id: 14,
     statement: "O que você valoriza em um colega de trabalho?",
     subtitle: "Selecione 1 opção",
     maxSelections: 1,
@@ -230,7 +211,7 @@ export const questions: Question[] = [
     ],
   },
   {
-    type: "lista", id: 30,
+    type: "lista", id: 15,
     statement: "Qual dessas frustrações você quer evitar na sua carreira?",
     subtitle: "Selecione 1 opção",
     maxSelections: 1,
@@ -241,9 +222,24 @@ export const questions: Question[] = [
       { alternative: "D", text: "Lidar com processos criativos abstratos", profile: PM["Convencional"] },
     ],
   },
-
-  // ─── BLOCO 3: Cards com Ícones (31-45) ───────────────────────────────────
-
+  // ─── BLOCO 2: Likert (16-30) ───────────────────────────────
+  { type: "likert", id: 16, statement: "Gosto de trabalhos que envolvem atividades práticas, onde posso ver o resultado físico do que fiz.", profile: PM["Realista"] },
+  { type: "likert", id: 17, statement: "Sinto necessidade de estar em ambientes onde posso expressar minha criatividade livremente.", profile: PM["Artístico"] },
+  { type: "likert", id: 18, statement: "Gosto de assumir a liderança em situações onde o grupo não sabe muito bem o que fazer.", profile: PM["Empreendedor"] },
+  { type: "likert", id: 19, statement: "Prefiro consertar algo que quebrou do que comprar um novo ou pagar para alguém arrumar.", profile: PM["Realista"] },
+  { type: "likert", id: 20, statement: "A estética e o design das coisas são fatores que influenciam muito nas minhas decisões.", profile: PM["Artístico"] },
+  { type: "likert", id: 21, statement: "Sou bom em convencer as pessoas a apoiarem minhas ideias ou comprarem um projeto.", profile: PM["Empreendedor"] },
+  { type: "likert", id: 22, statement: "Prefiro atividades ao ar livre ou que exijam movimentação do que ficar o dia todo sentado.", profile: PM["Realista"] },
+  { type: "likert", id: 23, statement: "Gosto de trabalhar em ambientes dinâmicos onde regras podem ser quebradas em prol da inovação.", profile: PM["Artístico"] },
+  //───BLOCO 3: Boolean Cards (16-30)───────────────────────────────
+  { type: "direta", id: 24, statement: "Fico animado quando tenho que aprender algo novo, mesmo que seja complexo e desafiador.", profile: PM["Investigativo"] },
+  { type: "direta", id: 25, statement: "Tenho muita facilidade em ouvir os problemas das pessoas e ajudá-las a encontrar soluções.", profile: PM["Social"] },
+  { type: "direta", id: 26, statement: "Fico incomodado quando as informações estão desorganizadas ou sem um padrão claro.", profile: PM["Convencional"] },
+  { type: "direta", id: 27, statement: "Gosto de analisar dados, ler gráficos e encontrar as razões ocultas por trás de um problema.", profile: PM["Investigativo"] },
+  { type: "direta", id: 28, statement: "Me sinto energizado depois de passar o dia ensinando ou orientando outras pessoas.", profile: PM["Social"] },
+  { type: "direta", id: 29, statement: "Gosto de seguir métodos, checklists e processos bem definidos no meu dia a dia.", profile: PM["Convencional"] },
+  { type: "direta", id: 30, statement: "Adoro testar teorias e ver se as hipóteses que criei na minha cabeça realmente funcionam.", profile: PM["Investigativo"] },
+  // ─── BLOCO 4: Cards com Ícones (31-45) ───────────────────────────────────
   {
     type: "cards", id: 31,
     statement: "Quais ambientes de trabalho mais te atraem?",
@@ -410,7 +406,7 @@ export const questions: Question[] = [
     ],
   },
 
-  // ─── BLOCO 4: Dilema Forçado (46-60) ─────────────────────────────────────
+  // ─── BLOCO 5: Dilema Forçado (46-60) ─────────────────────────────────────
 
   {
     type: "dicotomica", id: 46,

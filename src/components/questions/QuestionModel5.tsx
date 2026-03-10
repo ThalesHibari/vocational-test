@@ -6,26 +6,29 @@ interface QuestionModel5Props {
   question: QuestionLista;
   answer?: ListaAnswer;
   onChange: (answer: ListaAnswer) => void;
+  onAutoAdvance?: () => void;
 }
 
-export function QuestionModel5({ question, answer, onChange }: QuestionModel5Props) {
+export function QuestionModel5({ question, answer, onChange, onAutoAdvance }: QuestionModel5Props) {
   const selected = answer?.selected ?? [];
 
   function toggle(alt: string) {
     if (selected.includes(alt)) {
       onChange({ type: "lista", selected: selected.filter((s) => s !== alt) });
     } else if (selected.length < question.maxSelections) {
-      onChange({ type: "lista", selected: [...selected, alt] });
+      const next = [...selected, alt];
+      onChange({ type: "lista", selected: next });
+      if (next.length === question.maxSelections) onAutoAdvance?.();
     }
   }
 
   return (
-    <div className="flex flex-col gap-8 w-full">
+    <div className="flex flex-col gap-6 sm:gap-8 w-full">
       <div className="flex flex-col gap-2 text-center w-full">
-        <h2 className="text-2xl font-bold text-gray-800 leading-tight font-jakarta">
+        <h2 className="text-xl sm:text-2xl font-bold text-gray-800 leading-tight font-jakarta">
           {question.statement}
         </h2>
-        <p className="text-sm font-medium text-[#bababa] font-jakarta">
+        <p className="text-xs sm:text-sm font-medium text-[#bababa] font-jakarta">
           {question.subtitle}
         </p>
       </div>
@@ -56,7 +59,7 @@ export function QuestionModel5({ question, answer, onChange }: QuestionModel5Pro
                 }`}>
                 {option.alternative}
               </div>
-              <span className={`text-base font-normal leading-tight font-jakarta transition-colors
+              <span className={`text-sm sm:text-base font-normal leading-tight font-jakarta transition-colors
                 ${isSelected ? "text-gray-800 font-medium" : "text-gray-600"}`}>
                 {option.text}
               </span>
