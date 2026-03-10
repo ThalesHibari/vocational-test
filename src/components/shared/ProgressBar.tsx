@@ -28,11 +28,6 @@ export function ProgressBar({ currentIndex, answeredCount, variant = "desktop" }
 
   return (
     <div className="w-full max-w-[720px] mx-auto flex flex-col gap-2">
-      <div className="flex items-center justify-center gap-2 mt-8">
-        <span className="text-xs font-extrabold text-brand-purple tracking-widest uppercase font-jakarta">
-          Teste Vocacional
-        </span>
-      </div>
       <div className="flex items-center justify-between text-sm tracking-wide">
         <span className="font-semibold text-gray-800 font-jakarta">Progresso</span>
         <span className="font-normal text-gray-400 font-jakarta">
