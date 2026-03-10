@@ -23,7 +23,7 @@ export function NavButtons({
     <div className="flex flex-col gap-3 sm:gap-0 w-full">
       {/* "X respondidas" — above on mobile, between buttons on desktop */}
       <span className="sm:hidden text-xs text-center text-gray-400 font-jakarta tracking-wide">
-        {answeredCount} de 30 respondidas
+        {answeredCount} de 60 respondidas
       </span>
 
       <div className="flex items-center gap-6 sm:gap-0 sm:justify-between w-full">
@@ -36,7 +36,7 @@ export function NavButtons({
         </button>
 
         <span className="hidden sm:block text-sm text-gray-400 font-jakarta tracking-wide">
-          {answeredCount} de 30 respondidas
+          {answeredCount} de 60 respondidas
         </span>
 
         {isLastQuestion ? (

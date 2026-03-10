@@ -24,7 +24,7 @@ const initialState: TestState = {
   currentIndex: 0,
   answers: {},
   result: null,
-  userName: "Thales Souza",
+  userName: "Thales",
 };
 
 // ─── Actions ─────────────────────────────────────────────────────────────────

@@ -68,9 +68,6 @@ export function QuestionModel5({ question, answer, onChange, onAutoAdvance }: Qu
         })}
       </div>
 
-      <p className="text-xs text-center text-gray-400 font-jakarta">
-        {selected.length}/{question.maxSelections} selecionada{question.maxSelections > 1 ? "s" : ""}
-      </p>
     </div>
   );
 }
