@@ -3,6 +3,7 @@
 import { LeadProvider, TOTAL_FORM_STEPS, useLead } from "@/context/LeadContext";
 import { Header } from "@/components/layout/Header";
 import { THEMES } from "@/lib/theme";
+import { useEffect } from "react";
 import { FormAge } from "./FormAge";
 import { FormEducation } from "./FormEducation";
 import { FormLocation } from "./FormLocation";
@@ -34,6 +35,21 @@ function StepDots({ total, current }: { total: number; current: number }) {
 function LeadFormContent({ onComplete }: { onComplete: () => void }) {
   const { leadData, currentStep, nextStep, prevStep, canProceed, isLastStep } = useLead();
 
+  // Auto-advance ao selecionar nas etapas de escolha única
+  useEffect(() => {
+    if (currentStep !== 1 || leadData.faixaEtaria === "") return;
+    const t = setTimeout(nextStep, 300);
+    return () => clearTimeout(t);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [leadData.faixaEtaria]);
+
+  useEffect(() => {
+    if (currentStep !== 2 || leadData.escolaridade === "") return;
+    const t = setTimeout(nextStep, 300);
+    return () => clearTimeout(t);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [leadData.escolaridade]);
+
   function handleNext() {
     if (isLastStep) {
       if (typeof window !== "undefined") {
@@ -61,7 +77,7 @@ function LeadFormContent({ onComplete }: { onComplete: () => void }) {
 
   return (
     <div className="min-h-screen bg-brand-bg-purple relative overflow-hidden">
-      <Header theme={THEMES.purple} />
+      <Header theme={THEMES.purple} showProgress={false} />
 
       {/* ── MOBILE LAYOUT ── */}
       <div className="sm:hidden fixed inset-x-0 top-[57px] bottom-0 bg-white rounded-t-3xl border-2 border-gray-100 flex flex-col overflow-y-auto">

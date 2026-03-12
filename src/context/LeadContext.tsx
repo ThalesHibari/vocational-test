@@ -80,7 +80,7 @@ export function LeadProvider({ children }: { children: ReactNode }) {
       case 2:
         return leadData.escolaridade !== "";
       case 3:
-        return leadData.estado !== "";
+        return leadData.estado !== "" && leadData.cidade !== "";
       default:
         return false;
     }

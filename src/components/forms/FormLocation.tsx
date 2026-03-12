@@ -60,10 +60,14 @@ export function FormLocation() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  function normalize(str: string) {
+    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+  }
+
   const suggestions =
-    cidadeInput.length >= 4
+    cidadeInput.length >= 1
       ? municipios
-          .filter((m) => m.nome.toLowerCase().includes(cidadeInput.toLowerCase()))
+          .filter((m) => normalize(m.nome).includes(normalize(cidadeInput)))
           .slice(0, 7)
       : [];
 
@@ -71,7 +75,7 @@ export function FormLocation() {
     const val = e.target.value;
     setCidadeInput(val);
     setField("cidade", val);
-    setShowSuggestions(val.length >= 4);
+    setShowSuggestions(val.length >= 1);
   }
 
   function selectMunicipio(nome: string) {
@@ -114,8 +118,7 @@ export function FormLocation() {
         {/* Cidade */}
         <div className="flex flex-col gap-2" ref={wrapperRef}>
           <label className="font-jakarta font-semibold text-sm text-gray-800">
-            Cidade{" "}
-            <span className="font-normal text-brand-purple text-xs">(opcional)</span>
+            Cidade <span className="text-brand-purple">*</span>
           </label>
 
           <div className="relative">
@@ -123,14 +126,14 @@ export function FormLocation() {
               type="text"
               value={cidadeInput}
               onChange={handleCidadeChange}
-              onFocus={() => cidadeInput.length >= 4 && setShowSuggestions(true)}
+              onFocus={() => cidadeInput.length >= 1 && setShowSuggestions(true)}
               disabled={cidadeDisabled}
               placeholder={
                 !leadData.estado
                   ? "Selecione um estado primeiro"
                   : loadingMunicipios
                   ? "Carregando cidades..."
-                  : "Digite o nome da cidade (mín. 4 letras)"
+                  : "Digite o nome da cidade"
               }
               className={`w-full h-12 px-4 rounded-xl border-2 bg-white font-jakarta text-sm text-gray-800 placeholder:text-gray-400 outline-none transition-colors shadow-[0px_2px_0px_0px_#e7e4e7] ${
                 cidadeDisabled
@@ -167,7 +170,7 @@ export function FormLocation() {
             )}
 
             {/* Sem resultados */}
-            {showSuggestions && cidadeInput.length >= 4 && suggestions.length === 0 && !loadingMunicipios && (
+            {showSuggestions && cidadeInput.length >= 1 && suggestions.length === 0 && !loadingMunicipios && (
               <div className="absolute z-20 top-[calc(100%+4px)] left-0 right-0 bg-white border-2 border-gray-200 rounded-xl px-4 py-3">
                 <p className="font-jakarta text-sm text-gray-400">Nenhuma cidade encontrada</p>
               </div>
