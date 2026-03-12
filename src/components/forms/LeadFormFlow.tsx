@@ -4,6 +4,7 @@ import { LeadProvider, TOTAL_FORM_STEPS, useLead } from "@/context/LeadContext";
 import { Header } from "@/components/layout/Header";
 import { THEMES } from "@/lib/theme";
 import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { FormAge } from "./FormAge";
 import { FormEducation } from "./FormEducation";
 import { FormLocation } from "./FormLocation";
@@ -33,6 +34,7 @@ function StepDots({ total, current }: { total: number; current: number }) {
 // ─── Inner content ────────────────────────────────────────────────────────────
 
 function LeadFormContent({ onComplete }: { onComplete: () => void }) {
+  const router = useRouter();
   const { leadData, currentStep, nextStep, prevStep, canProceed, isLastStep } = useLead();
 
   // Auto-advance ao selecionar nas etapas de escolha única
@@ -88,6 +90,7 @@ function LeadFormContent({ onComplete }: { onComplete: () => void }) {
           <FormNavButtons
             onPrev={handlePrev}
             onNext={handleNext}
+            onExit={() => router.push("/")}
             canPrev={currentStep > 0}
             canNext={canProceed}
             nextLabel={nextLabel}
