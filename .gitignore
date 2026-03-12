@@ -31,3 +31,4 @@ next-env.d.ts
 
 # Claude local settings (contains secrets)
 .claude/
+.claude

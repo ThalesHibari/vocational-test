@@ -1,6 +1,5 @@
 "use client";
 
-import { BackgroundDecorations } from "@/components/layout/BackgroundDecorations";
 import { Header } from "@/components/layout/Header";
 import { PROFILE_INFO } from "@/lib/riasec";
 import { ProfileInfo, RiasecProfile, RiasecResult } from "@/lib/types";
