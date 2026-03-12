@@ -4,7 +4,8 @@
       "mcp__figma-remote-mcp__get_design_context",
       "Bash(sed:*)",
       "WebFetch(domain:ui.aceternity.com)",
-      "Bash(npm install:*)"
+      "Bash(npm install:*)",
+      "Bash(npx tsc:*)"
     ]
   }
 }

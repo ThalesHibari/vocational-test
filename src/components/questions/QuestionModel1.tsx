@@ -30,17 +30,17 @@ export function QuestionModel1({ question, answer, onChange, onAutoAdvance }: Qu
           onClick={() => { onChange({ type: "dicotomica", chosen: 0 }); onAutoAdvance?.(); }}
           className={`flex-1 flex flex-col items-center gap-3 px-4 py-6 sm:px-6 sm:py-8 rounded-2xl border-2 transition-all duration-200 text-center cursor-pointer
             ${chosen === 0
-              ? "border-brand-purple bg-[#f5edff] shadow-[0px_2px_0px_0px_#9267f4]"
-              : "border-gray-100 bg-white shadow-[0px_2px_0px_0px_#f3f1f3] hover:border-brand-light-purple"
+              ? "border-[#f56bd6] bg-[#fff6fd] shadow-[0px_2px_0px_0px_#f56bd6]"
+              : "border-gray-100 bg-white shadow-[0px_2px_0px_0px_#f3f1f3] hover:border-[#f9d3f0]"
             }`}
         >
           {/* Mobile: 48px container with border; Desktop: 72px */}
           <div className={`flex items-center justify-center sm:hidden size-12 rounded-xl border transition-colors
-            ${chosen === 0 ? "bg-[#ede0fc] border-brand-light-purple" : "bg-gray-50 border-gray-200"}`}>
+            ${chosen === 0 ? "bg-[#fde8f9] border-[#f9d3f0]" : "bg-gray-50 border-gray-200"}`}>
             <QuestionIcon name={question.options[0].icon} size={24} />
           </div>
           <div className={`hidden sm:flex items-center justify-center size-[72px] rounded-2xl border transition-colors
-            ${chosen === 0 ? "bg-[#ede0fc] border-brand-light-purple" : "bg-gray-50 border-gray-200"}`}>
+            ${chosen === 0 ? "bg-[#fde8f9] border-[#f9d3f0]" : "bg-gray-50 border-gray-200"}`}>
             <QuestionIcon name={question.options[0].icon} size={40} />
           </div>
           <div className="flex flex-col gap-1 sm:gap-2 items-center">
@@ -65,16 +65,16 @@ export function QuestionModel1({ question, answer, onChange, onAutoAdvance }: Qu
           onClick={() => { onChange({ type: "dicotomica", chosen: 1 }); onAutoAdvance?.(); }}
           className={`flex-1 flex flex-col items-center gap-3 px-4 py-6 sm:px-6 sm:py-8 rounded-2xl border-2 transition-all duration-200 text-center cursor-pointer
             ${chosen === 1
-              ? "border-brand-purple bg-[#f5edff] shadow-[0px_2px_0px_0px_#9267f4]"
-              : "border-gray-100 bg-white shadow-[0px_2px_0px_0px_#f3f1f3] hover:border-brand-light-purple"
+              ? "border-[#f56bd6] bg-[#fff6fd] shadow-[0px_2px_0px_0px_#f56bd6]"
+              : "border-gray-100 bg-white shadow-[0px_2px_0px_0px_#f3f1f3] hover:border-[#f9d3f0]"
             }`}
         >
           <div className={`flex items-center justify-center sm:hidden size-12 rounded-xl border transition-colors
-            ${chosen === 1 ? "bg-[#ede0fc] border-brand-light-purple" : "bg-gray-50 border-gray-200"}`}>
+            ${chosen === 1 ? "bg-[#fde8f9] border-[#f9d3f0]" : "bg-gray-50 border-gray-200"}`}>
             <QuestionIcon name={question.options[1].icon} size={24} />
           </div>
           <div className={`hidden sm:flex items-center justify-center size-[72px] rounded-2xl border transition-colors
-            ${chosen === 1 ? "bg-[#ede0fc] border-brand-light-purple" : "bg-gray-50 border-gray-200"}`}>
+            ${chosen === 1 ? "bg-[#fde8f9] border-[#f9d3f0]" : "bg-gray-50 border-gray-200"}`}>
             <QuestionIcon name={question.options[1].icon} size={40} />
           </div>
           <div className="flex flex-col gap-1 sm:gap-2 items-center">

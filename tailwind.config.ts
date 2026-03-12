@@ -14,6 +14,9 @@ const config: Config = {
           "dark-purple": "#6443af",
           "light-purple": "#dabff9",
           "bg-purple": "#fbf3fe",
+          pink: "#f56bd6",
+          "dark-pink": "#b12a93",
+          "bg-pink": "#ffedfb",
           white: "#fefefe",
         },
         gray: {

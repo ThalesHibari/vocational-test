@@ -8,6 +8,8 @@ interface NavButtonsProps {
   onNext: () => void;
   onPrev: () => void;
   onFinish: () => void;
+  primaryColor?: string;
+  darkColor?: string;
 }
 
 export function NavButtons({
@@ -18,6 +20,8 @@ export function NavButtons({
   onNext,
   onPrev,
   onFinish,
+  primaryColor = "#9267f4",
+  darkColor = "#6443af",
 }: NavButtonsProps) {
   return (
     <div className="flex flex-col gap-3 sm:gap-0 w-full">
@@ -30,7 +34,8 @@ export function NavButtons({
         <button
           onClick={onPrev}
           disabled={!canGoPrev}
-          className="bg-white border border-gray-200 text-brand-purple text-xs font-extrabold tracking-wider uppercase px-6 py-2.5 rounded-lg shadow-[0px_2px_0px_0px_#e7e4e7] hover:bg-gray-50 transition-colors disabled:opacity-40 disabled:cursor-not-allowed font-jakarta shrink-0"
+          style={{ color: primaryColor }}
+          className="bg-white border border-gray-200 text-xs font-extrabold tracking-wider uppercase px-6 py-2.5 rounded-lg shadow-[0px_2px_0px_0px_#e7e4e7] hover:bg-gray-50 transition-colors disabled:opacity-40 disabled:cursor-not-allowed font-jakarta shrink-0"
         >
           VOLTAR
         </button>
@@ -43,7 +48,12 @@ export function NavButtons({
           <button
             onClick={onFinish}
             disabled={!canGoNext}
-            className="bg-brand-purple border-b border-brand-dark-purple text-white text-xs font-extrabold tracking-wider uppercase px-6 py-2.5 rounded-lg shadow-[0px_2px_0px_0px_#6443af] hover:bg-[#8255e8] transition-colors disabled:opacity-40 disabled:cursor-not-allowed font-jakarta flex-1 sm:flex-none sm:w-auto"
+            style={{
+              backgroundColor: primaryColor,
+              borderColor: darkColor,
+              boxShadow: `0px 2px 0px 0px ${darkColor}`,
+            }}
+            className="text-white text-xs font-extrabold tracking-wider uppercase px-6 py-2.5 rounded-lg border-b transition-colors disabled:opacity-40 disabled:cursor-not-allowed font-jakarta flex-1 sm:flex-none sm:w-auto"
           >
             VER RESULTADO
           </button>
@@ -51,7 +61,12 @@ export function NavButtons({
           <button
             onClick={onNext}
             disabled={!canGoNext}
-            className="bg-brand-purple border-b border-brand-dark-purple text-white text-xs font-extrabold tracking-wider uppercase px-6 py-2.5 rounded-lg shadow-[0px_2px_0px_0px_#6443af] hover:bg-[#8255e8] transition-colors disabled:opacity-40 disabled:cursor-not-allowed font-jakarta flex-1 sm:flex-none sm:w-auto"
+            style={{
+              backgroundColor: primaryColor,
+              borderColor: darkColor,
+              boxShadow: `0px 2px 0px 0px ${darkColor}`,
+            }}
+            className="text-white text-xs font-extrabold tracking-wider uppercase px-6 py-2.5 rounded-lg border-b transition-colors disabled:opacity-40 disabled:cursor-not-allowed font-jakarta flex-1 sm:flex-none sm:w-auto"
           >
             PRÓXIMO
           </button>

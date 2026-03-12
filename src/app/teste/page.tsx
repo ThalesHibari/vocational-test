@@ -3,8 +3,13 @@
 import { Header } from "@/components/layout/Header";
 import { NavButtons } from "@/components/shared/NavButtons";
 import { QuestionRenderer } from "@/components/questions/QuestionRenderer";
+import { LeadFormFlow } from "@/components/forms/LeadFormFlow";
 import { TestProvider, useTest } from "@/context/TestContext";
+import { THEMES, getThemeForIndex } from "@/lib/theme";
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+
+// ─── Test content ─────────────────────────────────────────────────────────────
 
 function TestContent() {
   const router = useRouter();
@@ -17,6 +22,8 @@ function TestContent() {
     canGoPrev,
     isLastQuestion,
   } = useTest();
+
+  const theme = THEMES[getThemeForIndex(state.currentIndex)];
 
   function handleNext() {
     dispatch({ type: "NEXT" });
@@ -36,8 +43,17 @@ function TestContent() {
     setTimeout(() => (isLastQuestion ? handleFinish() : handleNext()), 300);
 
   return (
-    <div className="min-h-screen bg-brand-bg-purple relative overflow-hidden">
-      <Header userName={state.userName} currentIndex={state.currentIndex} answeredCount={answeredCount} />
+    <div
+      className="min-h-screen relative overflow-hidden transition-colors duration-500"
+      style={{ backgroundColor: theme.bgHex }}
+    >
+      <Header
+        userName={state.userName}
+        currentIndex={state.currentIndex}
+        answeredCount={answeredCount}
+        theme={theme}
+        showProgress
+      />
 
       {/* ── MOBILE LAYOUT ── */}
       <div className="sm:hidden fixed inset-x-0 top-[79px] bottom-0 bg-white rounded-t-3xl border-2 border-gray-100 flex flex-col overflow-y-auto">
@@ -61,6 +77,8 @@ function TestContent() {
             onNext={handleNext}
             onPrev={handlePrev}
             onFinish={handleFinish}
+            primaryColor={theme.primaryHex}
+            darkColor={theme.darkHex}
           />
         </div>
       </div>
@@ -68,7 +86,6 @@ function TestContent() {
       {/* ── DESKTOP LAYOUT ── */}
       <main className="hidden sm:flex relative z-10 flex-col items-center justify-center min-h-screen pt-[72px] pb-8 px-4">
         <div className="w-full max-w-[800px] flex flex-col gap-6">
-          {/* Stacked card effect */}
           <div className="relative w-full">
             <div className="absolute inset-x-6 top-6 h-full bg-white/90 rounded-2xl border-2 border-gray-100" />
             <div className="absolute inset-x-3 top-3 h-full bg-white/95 rounded-2xl border-2 border-gray-100" />
@@ -91,6 +108,8 @@ function TestContent() {
                 onNext={handleNext}
                 onPrev={handlePrev}
                 onFinish={handleFinish}
+                primaryColor={theme.primaryHex}
+                darkColor={theme.darkHex}
               />
             </div>
           </div>
@@ -100,10 +119,33 @@ function TestContent() {
   );
 }
 
-export default function TestePage() {
+// ─── Gate: exibe formulário antes do teste ────────────────────────────────────
+
+function TestGate() {
+  const [formDone, setFormDone] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    if (localStorage.getItem("riasec_lead")) {
+      setFormDone(true);
+    }
+  }, []);
+
+  // Evita flash de conteúdo errado antes da hidratação
+  if (!mounted) return <div className="min-h-screen bg-brand-bg-purple" />;
+
+  if (!formDone) {
+    return <LeadFormFlow onComplete={() => setFormDone(true)} />;
+  }
+
   return (
     <TestProvider>
       <TestContent />
     </TestProvider>
   );
+}
+
+export default function TestePage() {
+  return <TestGate />;
 }

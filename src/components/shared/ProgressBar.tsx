@@ -5,9 +5,17 @@ interface ProgressBarProps {
   answeredCount: number;
   /** When true renders the desktop variant (with title + progress/total labels) */
   variant?: "desktop" | "mobile";
+  primaryColor?: string;
+  lightColor?: string;
 }
 
-export function ProgressBar({ currentIndex, answeredCount, variant = "desktop" }: ProgressBarProps) {
+export function ProgressBar({
+  currentIndex,
+  answeredCount,
+  variant = "desktop",
+  primaryColor = "#9267f4",
+  lightColor = "#dabff9",
+}: ProgressBarProps) {
   const progressPercent = Math.max(
     ((currentIndex + 1) / TOTAL_QUESTIONS) * 100,
     3
@@ -15,10 +23,10 @@ export function ProgressBar({ currentIndex, answeredCount, variant = "desktop" }
 
   if (variant === "mobile") {
     return (
-      <div className="relative bg-brand-light-purple h-3 rounded-full w-full overflow-hidden">
+      <div className="relative h-3 rounded-full w-full overflow-hidden" style={{ backgroundColor: lightColor }}>
         <div
-          className="absolute left-0 top-0 h-3 bg-brand-purple rounded-full transition-all duration-500 ease-out"
-          style={{ width: `${progressPercent}%` }}
+          className="absolute left-0 top-0 h-3 rounded-full transition-all duration-500 ease-out"
+          style={{ width: `${progressPercent}%`, backgroundColor: primaryColor }}
         >
           <div className="absolute inset-[3px_6px_4px_6px] bg-white/20 rounded-full" />
         </div>
@@ -34,10 +42,10 @@ export function ProgressBar({ currentIndex, answeredCount, variant = "desktop" }
           {currentIndex + 1} de {TOTAL_QUESTIONS}
         </span>
       </div>
-      <div className="relative bg-brand-light-purple h-4 rounded-full w-full overflow-hidden">
+      <div className="relative h-4 rounded-full w-full overflow-hidden" style={{ backgroundColor: lightColor }}>
         <div
-          className="absolute left-0 top-0 h-4 bg-brand-purple rounded-full transition-all duration-500 ease-out"
-          style={{ width: `${progressPercent}%` }}
+          className="absolute left-0 top-0 h-4 rounded-full transition-all duration-500 ease-out"
+          style={{ width: `${progressPercent}%`, backgroundColor: primaryColor }}
         >
           <div className="absolute inset-[4px_8px_7px_8px] bg-white/20 rounded-full" />
         </div>

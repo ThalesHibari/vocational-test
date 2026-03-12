@@ -39,8 +39,8 @@ export function QuestionModel2({ question, answer, onChange, onAutoAdvance }: Qu
             onClick={() => { onChange({ type: "likert", value: option.value as LikertValue }); onAutoAdvance?.(); }}
             className={`flex items-center gap-4 px-4 py-3 rounded-xl border-2 transition-all duration-200 cursor-pointer text-left w-full
               ${selected === option.value
-                ? "border-brand-purple bg-[#f5edff] shadow-[0px_2px_0px_0px_#9267f4]"
-                : "border-gray-200 bg-white shadow-[0px_2px_0px_0px_#e7e4e7] hover:border-brand-light-purple"
+                ? "border-[#fd7867] bg-[#fffaf0] shadow-[0px_2px_0px_0px_#fd7867]"
+                : "border-gray-200 bg-white shadow-[0px_2px_0px_0px_#e7e4e7] hover:border-[#f8d7d3]"
               }`}
           >
             <span className="text-[26px] shrink-0">{option.emoji}</span>
@@ -66,15 +66,15 @@ export function QuestionModel2({ question, answer, onChange, onAutoAdvance }: Qu
             <div
               className={`flex items-center justify-center size-[60px] rounded-full border-2 transition-all duration-200 text-[26px]
                 ${selected === option.value
-                  ? "border-brand-purple bg-[#f0e5ff] shadow-[0_0_0_4px_#dabff9] scale-110"
-                  : "border-gray-100 bg-white hover:border-brand-light-purple hover:scale-105"
+                  ? "border-[#fd7867] bg-[#fff3ef] shadow-[0_0_0_4px_#f8d7d3] scale-110"
+                  : "border-gray-100 bg-white hover:border-[#f8d7d3] hover:scale-105"
                 }`}
             >
               {option.emoji}
             </div>
             <span
               className={`text-xs font-medium whitespace-nowrap transition-colors font-jakarta
-                ${selected === option.value ? "text-brand-purple" : "text-[#adbdd2]"}`}
+                ${selected === option.value ? "text-[#fd7867]" : "text-[#adbdd2]"}`}
             >
               {option.label}
             </span>

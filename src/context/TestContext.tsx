@@ -8,6 +8,7 @@ import {
   Dispatch,
   ReactNode,
   useContext,
+  useEffect,
   useReducer,
 } from "react";
 
@@ -24,7 +25,7 @@ const initialState: TestState = {
   currentIndex: 0,
   answers: {},
   result: null,
-  userName: "Thales",
+  userName: "",
 };
 
 // ─── Actions ─────────────────────────────────────────────────────────────────
@@ -97,6 +98,12 @@ const TestContext = createContext<TestContextValue | null>(null);
 
 export function TestProvider({ children }: { children: ReactNode }) {
   const [state, dispatch] = useReducer(testReducer, initialState);
+
+  // Carrega userName do localStorage após hidratação
+  useEffect(() => {
+    const stored = localStorage.getItem("riasec_user");
+    if (stored) dispatch({ type: "SET_USER", name: stored });
+  }, []);
 
   const currentQuestion = questions[state.currentIndex];
   const answeredCount = getAnsweredCount(state.answers);

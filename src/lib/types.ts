@@ -101,6 +101,18 @@ export type Answer =
 
 export type Answers = Record<number, Answer>;
 
+// ─── Lead Form ───────────────────────────────────────────────────────────────
+
+export interface LeadData {
+  nome: string;
+  email: string;
+  telefone: string;
+  faixaEtaria: string;
+  escolaridade: string;
+  estado: string;
+  cidade: string;
+}
+
 // ─── Resultado ───────────────────────────────────────────────────────────────
 
 export interface RiasecResult {

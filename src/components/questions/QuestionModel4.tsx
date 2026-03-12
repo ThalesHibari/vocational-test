@@ -40,8 +40,8 @@ export function QuestionModel4({ question, answer, onChange }: QuestionModel4Pro
               onClick={() => toggle(option.id)}
               className={`w-full rounded-2xl border-2 transition-all duration-200 cursor-pointer text-left
                 ${isSelected
-                  ? "border-brand-purple bg-[#f5edff] shadow-[0px_2px_0px_0px_#9267f4]"
-                  : "border-gray-100 bg-white shadow-[0px_2px_0px_0px_#f3f1f3] hover:border-brand-light-purple"
+                  ? "border-[#02bc59] bg-[#faffed] shadow-[0px_2px_0px_0px_#02bc59]"
+                  : "border-gray-100 bg-white shadow-[0px_2px_0px_0px_#f3f1f3] hover:border-[#d9eba4]"
                 }`}
             >
               {/* Mobile layout: horizontal (icon | text | checkbox) */}
@@ -56,7 +56,7 @@ export function QuestionModel4({ question, answer, onChange }: QuestionModel4Pro
                   </span>
                 </div>
                 <div className={`flex items-center justify-center shrink-0 size-5 rounded border transition-colors
-                  ${isSelected ? "bg-brand-dark-purple border-brand-dark-purple" : "bg-white border-gray-200"}`}>
+                  ${isSelected ? "bg-[#06773b] border-[#06773b]" : "bg-white border-gray-200"}`}>
                   {isSelected && (
                     <svg viewBox="0 0 16 16" className="size-3 text-white" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                       <polyline points="13 4 6 11 3 8"/>
@@ -78,7 +78,7 @@ export function QuestionModel4({ question, answer, onChange }: QuestionModel4Pro
                     </span>
                   </div>
                   <div className={`flex items-center justify-center shrink-0 size-5 rounded border transition-colors
-                    ${isSelected ? "bg-brand-dark-purple border-brand-dark-purple" : "bg-white border-gray-200"}`}>
+                    ${isSelected ? "bg-[#06773b] border-[#06773b]" : "bg-white border-gray-200"}`}>
                     {isSelected && (
                       <svg viewBox="0 0 16 16" className="size-3 text-white" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                         <polyline points="13 4 6 11 3 8"/>
