@@ -18,9 +18,9 @@ function StepDots({ total, current }: { total: number; current: number }) {
         <div
           key={i}
           className={`rounded-full transition-all duration-300 ${i === current
-            ? "w-6 h-2 bg-brand-pink"
+            ? "w-6 h-2 bg-brand-purple"
             : i < current
-              ? "w-2 h-2 bg-brand-pink opacity-40"
+              ? "w-2 h-2 bg-brand-purple opacity-40"
               : "w-2 h-2 bg-gray-200"
             }`}
         />

@@ -11,13 +11,13 @@ export function FormChoiceItem({ index, text, selected, onSelect }: FormChoiceIt
       onClick={onSelect}
       className={`flex items-center gap-4 px-4 py-3 rounded-xl border-2 transition-all duration-200 cursor-pointer text-left w-full ${
         selected
-          ? "border-brand-pink bg-pink-50 shadow-[0px_2px_0px_0px_#f56bd6]"
-          : "border-gray-200 bg-white shadow-[0px_2px_0px_0px_#e7e4e7] hover:border-brand-pink/40"
+          ? "border-brand-purple bg-brand-bg-purple shadow-[0px_2px_0px_0px_#9267f4]"
+          : "border-gray-200 bg-white shadow-[0px_2px_0px_0px_#e7e4e7] hover:border-brand-purple/40"
       }`}
     >
       <div className={`flex items-center justify-center shrink-0 size-6 rounded-lg border-2 transition-colors font-bold text-xs font-jakarta ${
         selected
-          ? "border-brand-pink bg-brand-pink text-white"
+          ? "border-brand-purple bg-brand-purple text-white"
           : "border-gray-200 text-gray-400"
       }`}>
         {index}

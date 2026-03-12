@@ -97,12 +97,12 @@ export function FormLocation() {
         {/* Estado */}
         <div className="flex flex-col gap-2">
           <label className="font-jakarta font-semibold text-sm text-gray-800">
-            Estado <span className="text-brand-pink">*</span>
+            Estado <span className="text-brand-purple">*</span>
           </label>
           <select
             value={leadData.estado}
             onChange={(e) => setField("estado", e.target.value)}
-            className="w-full h-12 px-4 rounded-xl border-2 border-gray-200 bg-white font-jakarta text-sm text-gray-800 outline-none focus:border-brand-pink transition-colors shadow-[0px_2px_0px_0px_#e7e4e7] appearance-none cursor-pointer"
+            className="w-full h-12 px-4 rounded-xl border-2 border-gray-200 bg-white font-jakarta text-sm text-gray-800 outline-none focus:border-brand-purple transition-colors shadow-[0px_2px_0px_0px_#e7e4e7] appearance-none cursor-pointer"
           >
             <option value="" disabled>Selecione o seu estado</option>
             {Object.entries(ESTADOS).map(([uf, nome]) => (
@@ -115,7 +115,7 @@ export function FormLocation() {
         <div className="flex flex-col gap-2" ref={wrapperRef}>
           <label className="font-jakarta font-semibold text-sm text-gray-800">
             Cidade{" "}
-            <span className="font-normal text-brand-pink text-xs">(opcional)</span>
+            <span className="font-normal text-brand-purple text-xs">(opcional)</span>
           </label>
 
           <div className="relative">
@@ -135,14 +135,14 @@ export function FormLocation() {
               className={`w-full h-12 px-4 rounded-xl border-2 bg-white font-jakarta text-sm text-gray-800 placeholder:text-gray-400 outline-none transition-colors shadow-[0px_2px_0px_0px_#e7e4e7] ${
                 cidadeDisabled
                   ? "opacity-50 cursor-not-allowed border-gray-200"
-                  : "border-gray-200 focus:border-brand-pink"
+                  : "border-gray-200 focus:border-brand-purple"
               }`}
             />
 
             {/* Loading spinner */}
             {loadingMunicipios && (
               <div className="absolute right-4 top-1/2 -translate-y-1/2">
-                <div className="w-4 h-4 border-2 border-brand-pink border-t-transparent rounded-full animate-spin" />
+                <div className="w-4 h-4 border-2 border-brand-purple border-t-transparent rounded-full animate-spin" />
               </div>
             )}
 
@@ -157,7 +157,7 @@ export function FormLocation() {
                         e.preventDefault(); // evita blur antes do click
                         selectMunicipio(m.nome);
                       }}
-                      className="w-full text-left px-4 py-2.5 font-jakarta text-sm text-gray-700 hover:bg-pink-50 hover:text-gray-900 transition-colors"
+                      className="w-full text-left px-4 py-2.5 font-jakarta text-sm text-gray-700 hover:bg-brand-bg-purple hover:text-gray-900 transition-colors"
                     >
                       {m.nome}
                     </button>

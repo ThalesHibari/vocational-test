@@ -29,21 +29,21 @@ export function FormPersonal() {
         {/* Nome */}
         <div className="flex flex-col gap-2">
           <label className="font-jakarta font-semibold text-sm text-gray-800">
-            Nome <span className="text-brand-pink">*</span>
+            Nome <span className="text-brand-purple">*</span>
           </label>
           <input
             type="text"
             value={leadData.nome}
             onChange={(e) => setField("nome", e.target.value)}
             placeholder="Como você gostaria de ser chamado?"
-            className="w-full h-12 px-4 rounded-xl border-2 border-gray-200 bg-white font-jakarta text-sm text-gray-800 placeholder:text-gray-400 outline-none focus:border-brand-pink transition-colors shadow-[0px_2px_0px_0px_#e7e4e7]"
+            className="w-full h-12 px-4 rounded-xl border-2 border-gray-200 bg-white font-jakarta text-sm text-gray-800 placeholder:text-gray-400 outline-none focus:border-brand-purple transition-colors shadow-[0px_2px_0px_0px_#e7e4e7]"
           />
         </div>
 
         {/* E-mail */}
         <div className="flex flex-col gap-2">
           <label className="font-jakarta font-semibold text-sm text-gray-800">
-            E-mail <span className="text-brand-pink">*</span>
+            E-mail <span className="text-brand-purple">*</span>
           </label>
           <input
             type="email"
@@ -54,7 +54,7 @@ export function FormPersonal() {
             className={`w-full h-12 px-4 rounded-xl border-2 bg-white font-jakarta text-sm text-gray-800 placeholder:text-gray-400 outline-none transition-colors shadow-[0px_2px_0px_0px_#e7e4e7] ${
               emailInvalid
                 ? "border-red-400 focus:border-red-400"
-                : "border-gray-200 focus:border-brand-pink"
+                : "border-gray-200 focus:border-brand-purple"
             }`}
           />
           {emailInvalid && (
@@ -75,7 +75,7 @@ export function FormPersonal() {
             value={leadData.telefone}
             onChange={handlePhoneChange}
             placeholder="(00) 00000-0000"
-            className="w-full h-12 px-4 rounded-xl border-2 border-gray-200 bg-white font-jakarta text-sm text-gray-800 placeholder:text-gray-400 outline-none focus:border-brand-pink transition-colors shadow-[0px_2px_0px_0px_#e7e4e7]"
+            className="w-full h-12 px-4 rounded-xl border-2 border-gray-200 bg-white font-jakarta text-sm text-gray-800 placeholder:text-gray-400 outline-none focus:border-brand-purple transition-colors shadow-[0px_2px_0px_0px_#e7e4e7]"
           />
         </div>
       </div>
