@@ -111,6 +111,7 @@ function LeadFormContent({ onComplete }: { onComplete: () => void }) {
               <FormNavButtons
                 onPrev={handlePrev}
                 onNext={handleNext}
+                onExit={() => router.push("/")}
                 canPrev={currentStep > 0}
                 canNext={canProceed}
                 nextLabel={nextLabel}
