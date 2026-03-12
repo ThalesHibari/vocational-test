@@ -3,11 +3,14 @@
 import { Header } from "@/components/layout/Header";
 import { NavButtons } from "@/components/shared/NavButtons";
 import { QuestionRenderer } from "@/components/questions/QuestionRenderer";
+import { SectionTransition } from "@/components/questions/SectionTransition";
 import { LeadFormFlow } from "@/components/forms/LeadFormFlow";
 import { TestProvider, useTest } from "@/context/TestContext";
 import { THEMES, getThemeForIndex } from "@/lib/theme";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+
+const TRANSITION_INDICES = new Set([0, 15, 23, 30, 45]);
 
 // ─── Test content ─────────────────────────────────────────────────────────────
 
@@ -25,6 +28,16 @@ function TestContent() {
 
   const theme = THEMES[getThemeForIndex(state.currentIndex)];
 
+  // Transition screens between sections
+  const [doneTransitions, setDoneTransitions] = useState<Set<number>>(new Set());
+  const shouldShowTransition =
+    TRANSITION_INDICES.has(state.currentIndex) &&
+    !doneTransitions.has(state.currentIndex);
+
+  function acknowledgeTransition() {
+    setDoneTransitions((prev) => new Set([...prev, state.currentIndex]));
+  }
+
   function handleNext() {
     dispatch({ type: "NEXT" });
   }
@@ -41,6 +54,28 @@ function TestContent() {
   const currentAnswer = state.answers[currentQuestion?.id];
   const autoAdvance = () =>
     setTimeout(() => (isLastQuestion ? handleFinish() : handleNext()), 300);
+
+  if (shouldShowTransition) {
+    return (
+      <div
+        className="min-h-screen relative overflow-hidden transition-colors duration-500"
+        style={{ backgroundColor: theme.bgHex }}
+      >
+        <Header
+          userName={state.userName}
+          currentIndex={state.currentIndex}
+          answeredCount={answeredCount}
+          theme={theme}
+          showProgress
+        />
+        <SectionTransition
+          index={state.currentIndex}
+          theme={theme}
+          onContinue={acknowledgeTransition}
+        />
+      </div>
+    );
+  }
 
   return (
     <div

@@ -171,7 +171,7 @@ export default function HomePage() {
             <div className="inline-flex items-center gap-2 self-start px-3.5 py-1.5 rounded-full bg-brand-bg-purple border border-brand-light-purple">
               <span className="w-1.5 h-1.5 rounded-full bg-brand-purple shrink-0" />
               <span className="text-xs font-semibold text-brand-dark-purple font-jakarta">
-                Gratuito · Baseado na Teoria RIASEC de Holland
+                Baseado na Teoria RIASEC de Holland
               </span>
             </div>
 
