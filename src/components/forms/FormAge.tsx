@@ -8,7 +8,7 @@ const AGE_OPTIONS = [
   "18 a 24 anos",
   "25 a 30 anos",
   "31 a 40 anos",
-  "41 anos ou mai",
+  "41 anos ou mais",
 ];
 
 export function FormAge() {
