@@ -5,6 +5,8 @@ import { PROFILE_INFO } from "@/lib/riasec";
 import { ProfileInfo, RiasecProfile, RiasecResult } from "@/lib/types";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { sendTestCompleted } from "@/lib/webhook";
+import { LeadData } from "@/lib/types";
 
 function ScoreBar({ profile, score, maxScore }: { profile: RiasecProfile; score: number; maxScore: number }) {
   const info = PROFILE_INFO[profile];
@@ -78,7 +80,16 @@ export default function ResultadoPage() {
   useEffect(() => {
     const stored = localStorage.getItem("riasec_result");
     const storedUser = localStorage.getItem("riasec_user");
-    if (stored) setResult(JSON.parse(stored) as RiasecResult);
+    const storedLead = localStorage.getItem("riasec_lead");
+
+    if (stored) {
+      const parsedResult = JSON.parse(stored) as RiasecResult;
+      setResult(parsedResult);
+
+      if (storedLead) {
+        sendTestCompleted(JSON.parse(storedLead) as LeadData, parsedResult);
+      }
+    }
     if (storedUser) setUserName(storedUser);
   }, []);
 

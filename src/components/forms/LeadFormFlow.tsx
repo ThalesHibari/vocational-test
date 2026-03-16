@@ -10,6 +10,7 @@ import { FormEducation } from "./FormEducation";
 import { FormLocation } from "./FormLocation";
 import { FormNavButtons } from "./FormNavButtons";
 import { FormPersonal } from "./FormPersonal";
+import { sendLeadCaptured } from "@/lib/webhook";
 
 // ─── Step dots ────────────────────────────────────────────────────────────────
 
@@ -58,6 +59,7 @@ function LeadFormContent({ onComplete }: { onComplete: () => void }) {
         localStorage.setItem("riasec_lead", JSON.stringify(leadData));
         localStorage.setItem("riasec_user", leadData.nome);
       }
+      sendLeadCaptured(leadData);
       onComplete();
     } else {
       nextStep();
